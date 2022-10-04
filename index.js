@@ -1,1 +1,4 @@
-console.log('hello')
+function saySomething(){
+	const message = "Something!"
+	console.log(message)
+}

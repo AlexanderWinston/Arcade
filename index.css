@@ -1,3 +1,59 @@
-h1 {
-	color: blue;
+* {
+	box-sizing: border-box;
+	background-color: rgb(192, 192, 192);
 }
+
+.p1 {
+	color: #004282;
+	padding: 10px;
+	float: left;
+
+}
+.p2 {
+	color: rgb(154, 3, 3);
+	padding: 10px;
+	float: right;
+
+}
+
+body {
+	display: flex;
+	flex-direction: column ;
+	justify-content: center;
+	align-items: center;
+}
+
+.tictactoeboard {
+	width: 360px;
+	height: 360px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.cell {
+	flex: 0 0 120px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.cell:nth-child(3n+2) {
+	border-left: 3px solid black;
+	border-right: 3px solid black;
+}
+
+.cell:nth-child(n+4):nth-child(-n+6){
+	border-top: 3px solid black;
+	border-bottom: 3px solid black;
+}
+
+
+
+h1 {
+	color: black;
+	text-align: center;
+	
+}
+
