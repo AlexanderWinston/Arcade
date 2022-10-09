@@ -14,25 +14,43 @@
 	
 	
 	<h1>Tic-Tac-Toe</h1>
-
+<div id="twoPlayerStartScreen">
 	<div class="p1">
 	<h2>Team X(Name)</h2>
+	<input type="text" id="teamxname" placeholder="enter name"/>
 	</div>
 
 	<div class="p2">
-	<h2>Team(Name)</h2>
+	<h2>Team O(Name)</h2>
+	<input type="text" id="teamoname" placeholder="enter name"/>
 	</div>
+	<button id="twoPlayerStartGame">Start Game</button>
+</div>
+<div id="playerTurnScreen">	
+<div id="teamxnamewrapper">
+	<h2>Team X Name</h2>
+	<span id="teamXdisplayname"></span>
+	<span class="isCurrentPlayer">It's Your Turn!</span>
+	</div>
+	<div id="teamonamewrapper">
+		<h2>Team O Name</h2>
+		<span id="teamOdisplayname"></span>
+		<span class="isCurrentPlayer">It's Your Turn!</span>
+		</div>
 
-	<div class="tictactoeboard">
-		<div class="cell">X</div>
-		<div class="cell">O</div>
-		<div class="cell">X</div>
-		<div class="cell">O</div>
-		<div class="cell">X</div>
-		<div class="cell">O</div>
-		<div class="cell">X</div>
-		<div class="cell">X</div>
-		<div class="cell">O</div>
+
+
+</div>
+	<div class="grid">
+		<div class="cell"></div>
+		<div class="cell"></div>
+		<div class="cell"></div>
+		<div class="cell"></div>
+		<div class="cell"></div>
+		<div class="cell"></div>
+		<div class="cell"></div>
+		<div class="cell"></div>
+		<div class="cell"></div>
 
 	</div>
 </html>

@@ -1,18 +1,18 @@
 * {
 	box-sizing: border-box;
-	background-color: rgb(192, 192, 192);
+	background-color: rgb(240, 238, 238);
 }
 
 .p1 {
 	color: #004282;
 	padding: 10px;
-	float: left;
+	
 
 }
 .p2 {
 	color: rgb(154, 3, 3);
 	padding: 10px;
-	float: right;
+	
 
 }
 
@@ -23,7 +23,7 @@ body {
 	align-items: center;
 }
 
-.tictactoeboard {
+.grid {
 	width: 360px;
 	height: 360px;
 	display: flex;
@@ -56,4 +56,9 @@ h1 {
 	text-align: center;
 	
 }
-
+#playerTurnScreen {
+	display: none;
+}
+.isCurrentPlayer {
+	display: none;
+}
