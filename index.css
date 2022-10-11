@@ -23,13 +23,13 @@ body {
 	align-items: center;
 }
 
-.grid {
+ .grid {
 	width: 360px;
 	height: 360px;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-}
+} 
 
 .cell {
 	flex: 0 0 120px;
@@ -61,4 +61,10 @@ h1 {
 }
 .isCurrentPlayer {
 	display: none;
+}
+#twoPlayerStartGame {
+	color: black;
+	display: flex;
+	justify-content: center;
+	
 }
