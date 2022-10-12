@@ -26,9 +26,10 @@ body {
  .grid {
 	width: 360px;
 	height: 360px;
-	display: flex;
+	display: none;
 	flex-direction: row;
 	flex-wrap: wrap;
+
 } 
 
 .cell {
@@ -67,4 +68,10 @@ h1 {
 	display: flex;
 	justify-content: center;
 	
+}
+#playerOne {
+	display: none;
+}
+#playerTwo {
+	display: none;
 }

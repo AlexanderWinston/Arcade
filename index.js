@@ -1,84 +1,95 @@
-function initGame(){
-	const squares = document.getElementsByClassName('cell')
-	const state = { 
-		startingPlayer: null,
-		currPlayer: null,
-		isGameOn: false,
-		playerOne: {symbol: 'O', choices:{}, name:''},
-		playerTwo: {symbol: 'X', choices:{}, name:''},
-		winner: null
+const gameState = {
+	players: ['x', 'o'],
+	board: [
+	  [null, null, null],
+	  [null, null, null],
+	  [null, null, null]
+	]
+  }
+  const startGameBtn = document.getElementById('startGameBtn');
+  startGameBtn.addEventListener('click', chooseRandomPlayer)
+  let selectedPlayer;
+  function chooseRandomPlayer (){
+	let a = (Math.random())
+	document.getElementById('griddy').style.display = "flex"
+	if(a >= .5){
+		const playerOne = document.getElementById('playerOne').style.display = "block"
+		selectedPlayer = 'Player One'
+		const playerTwo = document.getElementById('playerTwo').style.display = "none"
+	} else {
+		const playerTwo = document.getElementById('playerTwo').style.display = "block"
+		selectedPlayer = 'Player Two'
+		const playerOne = document.getElementById('playerOne').style.display = "none"
 	}
 	
-	// let currPlayer;
-	// let isGameOn = 'false'
-	// const playerOne = {symbol: 'O', choices:{}}
+  }
+  function addXorO(addTextToSquare, row, column) {
+	if(addTextToSquare.innerText == 'X' || addTextToSquare.innerText == 'O'){
+		return;
+		
+	}
+	
+	
+	if (selectedPlayer === 'Player One'){
+		addTextToSquare.innerText = 'X'
+		selectedPlayer = 'Player Two'
+		gameState.board[row][column] = 'X';
+		
 
-	// const playerTwo = {symbol: 'X', choices:{}}
-	// let winner = ''
-	const startGameBtn = document.getElementById('startGameBtn')
-	const selectBox = function(currPlayer, event){
-		console.log('selectBox')
-		console.log(event)
-		console.log(event.srcElement)
-		console.log(currPlayer)
-		if (currPlayer === 'playerOne'){
-			event.srcElement.innerText = playerOne.symbol
+	} else {
+		addTextToSquare.innerText = 'O'
+		selectedPlayer = 'Player One'
+		gameState.board[row][column] = 'O'
+	}
+	let winningPlayer;
+	for (let i = 0; i < 3; i++){
+		let player1WinCounter = 0;
+		let player2WinCounter = 0;
+		for (let j = 0; j < 3; j++){
+			let enteredValue = gameState.board[i][j]
+			if (enteredValue == null){
+				return;
+
+			}
+			else if (enteredValue == 'X'){
+				player1WinCounter ++;
+			} else {
+				player2WinCounter ++;
+			}
+			if (player1WinCounter >=3){
+				winningPlayer = 'Player1Wins'
+				console.log('winner1')
+				return;
+
+
+			}
+			if (player2WinCounter >=3){
+				winningPlayer ='Player2Wins'
+				console.log('winner2')
+				return;
+			}
+
+		
+		}
+		
+	}
+
+  }
+  let resetBtn = document.getElementById('resetBtn');
+  resetBtn.addEventListener('click', resetGame)
+  function resetGame(){
+	let cells = document.getElementsByClassName('cell')
+		for (let i = 0; i < cells.length; i++){
+			let cell = cells[i];
+			cell.innerText = ''
+			document.getElementById('griddy').style.display = "none"
 
 
 		}
-		else {event.srcElement.innerText = playerTwo.symbol}
-	}
-	for (let i = 0; i < squares.length; i++){
-		//console.log(squares[i]) 
-		state.currPlayer = 'playerOne'
-		//remove after^
-		squares[i].addEventListener("click", selectBox.bind(null, state.currPlayer))	
-		squares[i].classList.add(`square${i}`)
-		console.log(squares[i])
-		} 
-	const startGameFunc = function(){
-		state.isGameOn = true
-		state.playerOne.name = document.getElementById('playerOne').value
-		state.playerTwo.name = document.getElementById('playerTwo').value
-		const startScreen = document.getElementById('twoPlayerStartScreen')
-		startScreen.style.display = 'none'
-		const playerTypes = ['1','2']
-		state.startingPlayer = playerTypes[Math.floor(Math.random()*playerTypes.length)]
-		console.log(state.startingPlayer)
-		//const turnScreen = document.getElementById('playerTurnScreen')
-		//turnScreen.style.display = 'block'
-		const playerOneNameSpan = document.querySelector('#playerOneNameWrapper #playerOneDisplayName')
-		console.log(playerOneNameSpan)
-		const playerTwoNameSpan = document.querySelector('#playerTwoNameWrapper #playerTwoDisplayName')
-		console.log(playerTwoNameSpan)
-		playerOneNameSpan.innerText = state.playerOne.name
-		playerTwoNameSpan.innerText = state.playerTwo.name
-		
-		//const currPlayerspan = document.querySelector('#team'+currPlayer+'namewrapper .isCurrentPlayer')
-		//currPlayerspan.style.display = 'block'
-// //while (state.isGameOn === true){
-
-
-
-
-
-// 	//update winner
-// }
-alert(`${state.winner} has won the game!`)
-	}
-
 	
-	startGameBtn.addEventListener('click', startGameFunc)
 	
-}
-initGame()
-// for loop 
-// if, else if, else
-// templating and rendering
-// dynamically create array boxes
-// rename grid class
-// X's and O's
-//adjust code for randomly selected
-//every time box is clicked do if check full or not 
-// know when player wins 
-// create reset button 
+
+
+
+
+  }

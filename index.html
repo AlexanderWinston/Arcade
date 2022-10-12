@@ -17,22 +17,23 @@
 <div id="twoPlayerStartScreen">
 	<div class="p1">
 	<h2>Player One</h2>
-	<input type="text" id="playerOne" placeholder="Enter Name Here"/>
+	<input type="text" id="playerOneName" placeholder="Enter Name Here"/>
 	</div>
 
 	<div class="p2">
 	<h2>Player Two</h2>
-	<input type="text" id="playerTwo" placeholder="Enter Name Here"/>
+	<input type="text" id="playerTwoName" placeholder="Enter Name Here"/>
 	</div>
-	<button id="startGameBtn">Start Game</button>
+	<button id="startGameBtn" on>Start Game</button>
+	<button id="resetBtn">Reset</button>
 </div>
 <div id="playerTurnScreen">	
-<div id="playerOneNameWrapper">
+<div id="playerOneName">
 	<h2>Team X Name</h2>
 	<span id="playerOneDisplayName"></span>
-	<span class="isCurrentPlayer">It's Your Turn!</span>
+	
 	</div>
-	<div id="playerTwoNameWrapper">
+	<div id="playerTwoName">
 		<h2>Team O Name</h2>
 		<span id="playerTwoDisplayName"></span>
 		<span class="isCurrentPlayer">It's Your Turn!</span>
@@ -41,16 +42,18 @@
 
 
 </div>
-	<div class="grid">
-		<div class="cell"></div>
-		<div class="cell"></div>
-		<div class="cell"></div>
-		<div class="cell"></div>
-		<div class="cell"></div>
-		<div class="cell"></div>
-		<div class="cell"></div>
-		<div class="cell"></div>
-		<div class="cell"></div>
+<span id="playerOne">Player One's Turn</span>
+	<span id="playerTwo">Player Two's Turn</span>
+	<div class="grid" id="griddy">
+		<div class="cell" onClick="addXorO(this, 0, 0)"></div>
+		<div class="cell" onClick="addXorO(this, 0, 1)"></div>
+		<div class="cell" onClick="addXorO(this, 0, 2)"></div>
+		<div class="cell" onClick="addXorO(this, 1, 0)"></div>
+		<div class="cell" onClick="addXorO(this, 1, 1)"></div>
+		<div class="cell" onClick="addXorO(this, 1, 2)"></div>
+		<div class="cell" onClick="addXorO(this, 2, 0)"></div>
+		<div class="cell" onClick="addXorO(this, 2, 1)"></div>
+		<div class="cell" onClick="addXorO(this, 2, 2)"></div>
 
 	</div>
 </html>
